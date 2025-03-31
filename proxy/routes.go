@@ -8,13 +8,13 @@ import (
 )
 
 func RegisterRoutes(r *gin.Engine) {
-	r.Any("/appointments/*path", forward("http://appointment-service:8081"))
-	r.Any("/orders/*path", forward("http://order-service:8083"))
-	r.Any("/patients/*path", forward("http://patient-service:8082"))
-	r.Any("/records/*path", forward("http://record-service:8084"))
-	r.Any("/lab/*path", forward("http://lab-service:8085"))
-	r.Any("/prescriptions/*path", forward("http://prescription-service:8086"))
-	r.Any("/referrals/*path", forward("http://referral-service:8087"))
+	r.Any("/api/appointments/*path", forward("http://appointment-service:8081/appointments"))
+	r.Any("/api/orders/*path", forward("http://order-service:8083/orders"))
+	r.Any("/api/patients/*path", forward("http://patient-service:8082/patients"))
+	r.Any("/api/records/*path", forward("http://record-service:8084/records"))
+	r.Any("/api/lab/*path", forward("http://lab-service:8085/lab"))
+	r.Any("/api/prescriptions/*path", forward("http://prescription-service:8086/prescriptions"))
+	r.Any("/api/referrals/*path", forward("http://referral-service:8087/referrals"))
 }
 
 func forward(target string) gin.HandlerFunc {
